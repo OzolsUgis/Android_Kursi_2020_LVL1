@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/txtwText"
+        android:id="@+id/ptInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -27,8 +27,8 @@
         android:text="Output"
         app:layout_constraintEnd_toStartOf="@+id/btnReverseOutput"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtwText"
-        app:layout_constraintTop_toBottomOf="@+id/txtwText" />
+        app:layout_constraintStart_toStartOf="@+id/ptInput"
+        app:layout_constraintTop_toBottomOf="@+id/ptInput" />
 
     <Button
         android:id="@+id/btnReverseOutput"
@@ -36,7 +36,7 @@
         android:layout_height="57dp"
         android:layout_marginTop="72dp"
         android:text="Reversed Output"
-        app:layout_constraintEnd_toEndOf="@+id/txtwText"
-        app:layout_constraintTop_toBottomOf="@+id/txtwText" />
+        app:layout_constraintEnd_toEndOf="@+id/ptInput"
+        app:layout_constraintTop_toBottomOf="@+id/ptInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
