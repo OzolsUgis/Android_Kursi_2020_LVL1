@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
         val btnPushMe = findViewById<Button>(R.id.btnPushMe)
         val txtwOutput = findViewById<TextView>(R.id.txtwOutput)
 
-        if (txtwOutput.text.toString().toInt() == 0){
+
             btnPushMe.setOnClickListener(){
                 val skaitlis = txtwOutput.text.toString().toInt() + 1
                 txtwOutput.text = skaitlis.toString()
             }
-        }
+
     }
 }
 
