@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 //======================================================================================================================================================
-
+            //MD 4.TAIS Uzdevums
 
         val num1 = findViewById<EditText>(R.id.ptNum1)
         val num2 = findViewById<EditText>(R.id.ptNum2)
@@ -94,6 +94,47 @@ class MainActivity : AppCompatActivity() {
             num1.text.clear()
             num2.text.clear()
             num3.text.clear()
+        }
+
+        //==============================================================================================================================================
+
+        // MD 5.TAIS Uzdevums
+
+        val insertNumer = findViewById<EditText>(R.id.ptInsertNumber)
+        val insertNumer2 = findViewById<EditText>(R.id.ptInsertNumber2)
+        val insertResult = findViewById<EditText>(R.id.ptInsertResult)
+        val seeResult = findViewById<Button>(R.id.btnSeeResult)
+
+        insertNumer.setOnClickListener(){
+            insertNumer.text.clear()
+        }
+        insertNumer2.setOnClickListener(){
+            insertNumer2.text.clear()
+        }
+        insertResult.setOnClickListener(){
+            insertResult.text.clear()
+        }
+
+
+        seeResult.setOnClickListener() {
+
+            val result = insertResult.text.toString()
+
+            if (result == "+") {
+                var sum = insertNumer.text.toString().toInt() + insertNumer2.text.toString().toInt()
+                Toast.makeText(this@MainActivity, sum.toString(), Toast.LENGTH_SHORT).show()
+            } else if (result == "-") {
+                var diffirence =
+                    insertNumer.text.toString().toInt() - insertNumer2.text.toString().toInt()
+                Toast.makeText(this@MainActivity, diffirence.toString(), Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this@MainActivity, "Enter + or - ", Toast.LENGTH_SHORT).show()
+                insertResult.text.clear()
+            }
+            insertNumer.text.clear()
+            insertNumer2.text.clear()
+            insertResult.text.clear()
+
         }
 
 
