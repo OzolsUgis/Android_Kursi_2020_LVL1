@@ -12,9 +12,9 @@ class MainActivity : AppCompatActivity() {
 
     fun intComp (x : Int, y : Int){
         if (x > y){
-            Toast.makeText(this@MainActivity, x.toString()+ " is greater than "+ y.toString(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, x.toString(), Toast.LENGTH_SHORT).show()
         }else {
-            Toast.makeText(this@MainActivity, y.toString()+ " is greater than "+ x.toString(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, y.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -23,6 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         stringConc("My ", "Name = ", "Ugis")
-        intComp(4,6)
+        intComp(9,6)
     }
 }
