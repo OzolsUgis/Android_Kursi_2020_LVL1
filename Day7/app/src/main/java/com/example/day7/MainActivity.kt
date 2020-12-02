@@ -3,6 +3,7 @@ package com.example.day7
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -13,16 +14,17 @@ class MainActivity : AppCompatActivity() {
 
         val btnClickMe = findViewById<Button>(R.id.btnPushMe)
         val txtOutput = findViewById<TextView>(R.id.txtOutput)
+        var switch = findViewById<Switch>(R.id.swSwitch)
 
-
-        btnClickMe.setOnClickListener(){
-            if (txtOutput.text.toString() == ""){
-                txtOutput.text=("+")
-            }else if (txtOutput.text.toString() == "+"){
-                txtOutput.text = "-"
-            }else if (txtOutput.text.toString() == "-"){
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                txtOutput.text="-"
+            } else {
                 txtOutput.text = "+"
             }
+        }
+        btnClickMe.setOnClickListener(){
+            switch.isChecked = !switch.isChecked;
         }
     }
 }
