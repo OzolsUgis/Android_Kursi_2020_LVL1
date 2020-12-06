@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.function.BooleanSupplier
 
 class MainActivity : AppCompatActivity() {
@@ -24,82 +25,85 @@ class MainActivity : AppCompatActivity() {
         secondBtn.setBackgroundColor(Color.GREEN)
         thirdBtn.setBackgroundColor(Color.BLUE)
 
-        setListener(firstBtn,true)
-        setListener(secondBtn,true)
-        setListener(thirdBtn,true)
+        setListener(firstBtn, false)
+        setListener(secondBtn,false)
+        setListener(thirdBtn,false)
+
+
+
 
 
     }
 
 
+    fun setListener(btn: Button,x:Boolean) {
 
-
-
-    fun setListener(btn: Button, inputColor:Boolean) {
-
-        var color = inputColor
-        var redColor : Boolean = true
-        var greenColor : Boolean= true
-        var blueColor : Boolean=true
 
         val fourthBtn = findViewById<Button>(R.id.btnForth)
+        var colorOn = false
 
+
+
+
+        var greenColorOn =x
+        var blueColorOn =x
+        var redColorOn: Boolean
+        redColorOn = x
 
         btn.setOnClickListener {
-            if (btn.text.toString() == "1") {
-                if (color == false) {
-                    redColor = true
-                    color = true
-                } else if (color == true){
-                    redColor = false
-                    color = false
-                }
-
-                }
-            else if(btn.text.toString() == "2"){
-                if (color == false) {
-                    greenColor = true
-                    color == true
-                } else if (color == true){
-                    greenColor = false
-                    color= false
-                }
-
-            else if(btn.text.toString() == "3") {
-                if (color == false) {
-                    blueColor = true
-                    color = true
-                } else if (color == true) {
-                    blueColor = false
-                    color= false
-                }
 
 
-    }
-        if (redColor==true){
-            fourthBtn.setBackgroundColor(Color.RED)
-        }else if (redColor == true && greenColor == true){
-            fourthBtn.setBackgroundColor(Color.YELLOW)
-        }else if (redColor == true && blueColor==true){
-            fourthBtn.setBackgroundColor(Color.MAGENTA)
-        } else if (blueColor== true){
-            fourthBtn.setBackgroundColor(Color.BLUE)
-        }else if (blueColor== true && greenColor==true){
-            fourthBtn.setBackgroundColor(Color.CYAN)
-        } else if (greenColor==true){
-            fourthBtn.setBackgroundColor(Color.CYAN)
-        }else if (greenColor==true&&blueColor==true&&redColor==true){
-            fourthBtn.setBackgroundColor(Color.WHITE)
+            if (btn.text.toString() == "1" && colorOn == false ) {
+                redColorOn = true
+                colorOn = true
+                fourthBtn.setBackgroundColor(Color.RED)
+                Toast.makeText(this@MainActivity, "Red color On", Toast.LENGTH_SHORT).show()
+            }
 
-        }
+            else if (btn.text.toString() == "1" && colorOn == true && redColorOn==true) {
+                colorOn = false
+                redColorOn = false
+                fourthBtn.setBackgroundColor(Color.BLACK)
+                Toast.makeText(this@MainActivity, "Red color off", Toast.LENGTH_SHORT).show()
+            }
+
+            else if (btn.text.toString() == "2" && colorOn == true && redColorOn == true) {
+                colorOn = true
+                greenColorOn = true
+                    fourthBtn.setBackgroundColor(Color.YELLOW)
+                Toast.makeText(this@MainActivity, "green color On", Toast.LENGTH_SHORT).show()
+
+            }
+
+            else if (btn.text.toString() == "2" && colorOn == true) {
+                colorOn = false
+                greenColorOn = false
+                Toast.makeText(this@MainActivity, "green color off", Toast.LENGTH_SHORT).show()
+            } else if (btn.text.toString() == "3" && colorOn == false) {
+                colorOn = true
+                blueColorOn = true
+
+                Toast.makeText(this@MainActivity, "blue color On", Toast.LENGTH_SHORT).show()
+            } else if (btn.text.toString() == "3" && colorOn == true) {
+                colorOn = false
+                blueColorOn = false
+                fourthBtn.setBackgroundColor(Color.BLUE)
+
+                Toast.makeText(this@MainActivity, "blue color off", Toast.LENGTH_SHORT).show()
+        }else{
+                Toast.makeText(this@MainActivity, "what", Toast.LENGTH_SHORT).show()
             }
         }
 
+
     }
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
