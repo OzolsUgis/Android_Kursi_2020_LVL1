@@ -26,44 +26,59 @@ class MainActivity : AppCompatActivity() {
     fun factorial(startRange: Int, endRange:Int): Int {
 
         var startNumber = startRange
-        var endRange = endRange
+        var endNumber = endRange
 
-        var randomNumber = (1..10).random()
-        for (i in startRange..endRange) {
+        var randomNumber = (0..11).random()
+        for (i in startNumber..endNumber) {
             randomNumber = randomNumber * i
         }
         return randomNumber
     }
 
     fun btnListener(btn: Button, txtw: TextView) {
-        btn.setOnClickListener() {
-            val inputRangeNum = findViewById<EditText>(R.id.txtInput)
-            var value = inputRangeNum.text.toString().toInt()
-            val inputValueNumber = findViewById<EditText>(R.id.txtInput2)
-            var rangeEndValue = inputValueNumber.text.toString().toInt()
 
+        btn.setOnClickListener() {
             var x1 : Int
             var x2 : Int
+            val empty : String = " "
+            val inputRangeStartNum = findViewById<EditText>(R.id.txtInput)
+            var rangeStartValue = inputRangeStartNum.text.toString().toInt()
+            val inputRangeEndNumber = findViewById<EditText>(R.id.txtInput2)
+            var rangeEndValue = inputRangeEndNumber.text.toString().toInt()
 
-            if (value< 1 || value > 10){
-                Toast.makeText(this@MainActivity, "Enter valid first number !",Toast.LENGTH_SHORT).show()
-                inputRangeNum.text.clear()
-            }else if (value.toString() == "") {
+
+
+
+            if(rangeStartValue>= 1 && rangeStartValue < rangeEndValue && rangeStartValue < 10){
+                x1 = rangeStartValue
+            }else if (rangeStartValue.toString() == empty) {
                 x1 = 1
             }else {
-                x1 = value
+                Toast.makeText(this@MainActivity, "Enter valid first number !",Toast.LENGTH_SHORT).show()
+                x1 = 1
+                inputRangeStartNum.text.clear()
+//            Here you must have initialized x1 ... ????????
+
+
+
             }
 
-            if (rangeEndValue < 1 && rangeEndValue <= value || rangeEndValue > 10 && rangeEndValue <= value){
-                Toast.makeText(this@MainActivity, "Enter valid end number !",Toast.LENGTH_SHORT).show()
-                inputValueNumber.text.clear()
-            }else if (rangeEndValue.toString() == ""){
-                x2 = 10
-            }else {
+            if (rangeEndValue > 1 && rangeEndValue > rangeStartValue &&  rangeEndValue <= 10 ){
                 x2 = rangeEndValue
+
+            }else if (rangeEndValue.toString() == empty){
+                x2 = 10
+
+            }else {
+                Toast.makeText(this@MainActivity, "Enter valid end number ! Next time, but now we will use 10",Toast.LENGTH_SHORT).show()
+                x2=10
+                inputRangeEndNumber.text.clear()
+
+                //            Here you must have initialized x2...???????
+
             }
 
-            var result = factorial(value,rangeEndValue)
+            var result = factorial(x1,x2)
             txtw.setText(result.toString())
 
 
