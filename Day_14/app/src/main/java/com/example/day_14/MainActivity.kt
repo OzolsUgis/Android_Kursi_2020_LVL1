@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +13,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val num1 = findViewById<EditText>(R.id.lblNum1)
+        val gson = Gson()
+        var user = User().user("Ugis", 24, "test@test.com")
+        var json = gson.toJson(user)
+
+        val num1 = findViewById<EditText>(R.id.lblNum1)
 //        val num2 = findViewById<EditText>(R.id.lblNum2)
 //        val num3 = findViewById<EditText>(R.id.lblNum3)
 //        val num4 = findViewById<EditText>(R.id.lblNum4)
@@ -52,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         btnSaveValue.setOnClickListener(){
             values.add(enterValue.text.toString().toInt())
+            enterValue.text.clear()
         }
 
         btnOutputList.setOnClickListener(){
