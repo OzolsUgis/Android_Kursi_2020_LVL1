@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
 import java.lang.Exception
 
@@ -15,20 +16,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //sakas #1
+
         val btnFact = findViewById<Button>(R.id.btnFact)
-
-
+       val editDiceCount = findViewById<EditText>(R.id.editDiceCount)
         btnFact.setOnClickListener{
-            //sis ir garais veids
-//            var input = editFact.text.toString()
-//
-//            var number = input.toInt()
-//
-//            var result = factorial(number)
-//
-//            lblResult.text = result.toString()
-            //sis ir isais
             sanatizeInputException()
 
 
@@ -41,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         val lblResultPl2 = findViewById<TextView>(R.id.lblResultPl2)
         val lblWinResult = findViewById<TextView>(R.id.lblWinResult)
         btnThrow.setOnClickListener{
-            var pl1 = getResult(lblResultPl1)
-            var pl2 = getResult(lblResultPl2)
+            var pl1 = GetResult().getResult(lblResultPl1, editDiceCount)
+            var pl2 = GetResult().getResult(lblResultPl2,editDiceCount)
 
             if(pl1 > pl2){
                 lblWinResult.text =  "Uzvar pirmais!"
@@ -55,45 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getResult(lbl: TextView): Int {
-        val editDiceCount = findViewById<EditText>(R.id.editDiceCount)
 
-        var result = IntArray(editDiceCount.text.toString().toInt())
-        var sum = 0
-
-        if (editDiceCount.toString().length > 0) {
-
-            var diceCount = editDiceCount.text.toString().toInt()
-
-            if (diceCount > 0) {
-                var diceValues = ""
-                for (i in 0..diceCount - 1) {
-                    var randomNumber = throwDice()
-                    result[i] = randomNumber
-
-                    if (diceValues != "")
-                        diceValues = diceValues +"," + result[i].toString()
-                    else
-                        diceValues = result[i].toString()
-                }
-                lbl.text = diceValues
-
-            }
-
-
-        sum = result.sum()
-
-
-    }
-
-
-        return sum
-
-    }
-
-    fun throwDice(): Int{
-        return (1..6).random()
-    }
 
     fun sanatizeInputException(){
         val editFact = findViewById<EditText>(R.id.editFact)
@@ -127,7 +80,6 @@ class MainActivity : AppCompatActivity() {
         var result: Int = 1
 
         for(i in 2..number){
-//            result = result * i
             result *= i
         }
 
