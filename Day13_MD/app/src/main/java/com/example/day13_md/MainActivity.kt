@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         val lblResultPl1 = findViewById<TextView>(R.id.lblResultPl1)
         val lblResultPl2 = findViewById<TextView>(R.id.lblResultPl2)
         val lblWinResult = findViewById<TextView>(R.id.lblWinResult)
+
+
         btnThrow.setOnClickListener{
             var pl1 = GetResult().getResult(lblResultPl1, editDiceCount)
             var pl2 = GetResult().getResult(lblResultPl2,editDiceCount)
@@ -42,6 +44,12 @@ class MainActivity : AppCompatActivity() {
             }else{
                 lblWinResult.text = "Neizšķirts!"
             }
+
+        }
+
+        btnThrow.setOnLongClickListener{
+            editDiceCount.setText("1")
+            return@setOnLongClickListener true
 
         }
     }
