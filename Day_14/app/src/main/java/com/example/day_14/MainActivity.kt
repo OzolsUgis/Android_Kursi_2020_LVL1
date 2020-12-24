@@ -14,8 +14,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val gson = Gson()
-        var user = User().user("Ugis", 24, "test@test.com")
-        var json = gson.toJson(user)
+        var json = gson.toJson(User().user(
+            "Ugis",
+            24,
+            "test@test.com"
+        ))
 
         val num1 = findViewById<EditText>(R.id.lblNum1)
 //        val num2 = findViewById<EditText>(R.id.lblNum2)
