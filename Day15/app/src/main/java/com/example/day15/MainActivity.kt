@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         val list: MutableList<Student> = mutableListOf()
 
         btnAdd.setOnClickListener {
-
             list.add(
                 Student(
                     lblName.text.toString(),
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnCheckStudent.setOnClickListener {
-            val check = lblCheckStudent.text.toString().toInt()
+            val check = lblCheckStudent.text.toString().toInt()-1
             var output = ""
             val checkIndex = list.getOrNull(check)
                 if (checkIndex == null){
@@ -56,6 +55,14 @@ class MainActivity : AppCompatActivity() {
             list.removeAt(delete)
 
         }
+
+        btnLottery.setOnClickListener{
+            var random = (0..list.size).random()
+            var vinner = list[random].name
+            Toast.makeText(this@MainActivity, "Apsveicam - "+ vinner + " ar laimēto saldumu kasti",
+                Toast.LENGTH_SHORT).show()
+        }
+
 
 
     }
