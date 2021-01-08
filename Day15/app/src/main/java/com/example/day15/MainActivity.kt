@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnDelete.setOnClickListener{
-            val delete = lblDelete.text.toString().toInt()
+            val delete = lblDelete.text.toString().toInt()-1
             Toast.makeText(this@MainActivity, "Student - "+ list[delete].name + " Deleted",
                 Toast.LENGTH_SHORT).show()
             list.removeAt(delete)
@@ -62,9 +62,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "Apsveicam - "+ vinner + " ar laimēto saldumu kasti",
                 Toast.LENGTH_SHORT).show()
         }
-
-
-
     }
 
 
