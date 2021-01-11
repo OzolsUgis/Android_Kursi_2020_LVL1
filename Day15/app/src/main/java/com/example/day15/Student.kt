@@ -1,5 +1,5 @@
 package com.example.day15
 
-class Student(var name : String, var lastName : String, var age:Int) {
+class Student(var name : String, var lastName : String, var age:Int, var winCount : Int) {
 
 }
