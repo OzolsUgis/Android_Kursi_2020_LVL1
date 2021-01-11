@@ -105,10 +105,10 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDelete"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCheckStudentName"
-        app:layout_constraintVertical_bias="0.554" />
+        app:layout_constraintTop_toBottomOf="@+id/lblCheckStudentName"
+        app:layout_constraintVertical_bias="0.28" />
 
     <Button
         android:id="@+id/btnLottery"

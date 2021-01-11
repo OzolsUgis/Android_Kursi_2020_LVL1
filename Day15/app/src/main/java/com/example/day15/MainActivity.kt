@@ -92,14 +92,12 @@ class MainActivity : AppCompatActivity() {
 
 
             btnCheckStudentName.setOnClickListener {
+                Log.d("NAME:",json)
                 val fromString = JsonParser.getFromJson(json)
                 for (el in fromString) {
                     Log.d("NAME:", el.name)
-
                 }
             }
-
-
         }
     }
 }
