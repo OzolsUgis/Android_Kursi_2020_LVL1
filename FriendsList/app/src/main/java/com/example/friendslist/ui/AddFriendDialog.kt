@@ -4,12 +4,14 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
+import com.example.friendslist.R
 import com.example.friendslist.data.entities.FriendsList
 import kotlinx.android.synthetic.main.friend_add_dialog.*
 
 class AddFriendDialog (context: Context, var dialogListener: DialogListener ) : AppCompatDialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.friend_add_dialog)
 
         tvAdd.setOnClickListener{
             val name = etFriendsName.text.toString()

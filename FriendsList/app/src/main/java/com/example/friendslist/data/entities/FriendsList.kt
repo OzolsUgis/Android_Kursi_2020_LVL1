@@ -13,6 +13,6 @@ data class FriendsList(
     val number : Int
 ){
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null
+    var id: Int? = null
 
 }
